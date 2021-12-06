@@ -34,13 +34,15 @@ def get_new_fish(fish_age, days, counter=0):
 
 def get_new_fish_2(fish_age, days):
     age_count = list(map(lambda n: fish_age.count(n), range(9)))
-    for day in range(days):
+    days = days
+    while days > 0:
         new_age_count = [0] * 9
         for i in range(8):
             new_age_count[i] = age_count[i+1]
         new_age_count[6] += age_count[0]
         new_age_count[8] = age_count[0]
         age_count = new_age_count
+        days -= 1
     return sum(age_count)
 
 
