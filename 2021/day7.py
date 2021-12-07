@@ -14,6 +14,7 @@ def calculate_fuel_1(crab):
     return sum(crab_fuel)
 
 def calculate_fuel_2(crab):
+    #horizontal_pos_mean = round(mean(crab))
     horizontal_pos_mean = int(mean(crab))
     crab_fuel_mean = [int(abs(x - horizontal_pos_mean)) for x in crab]
     return sum([(x * (x+1)/2) for x in crab_fuel_mean])
