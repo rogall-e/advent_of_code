@@ -20,4 +20,5 @@ for idx, i in enumerate(data):
         temp_lst = []
 
 result = sorted(result, reverse=True)
-print(sum(result[:3]))
+print('Answer question 1: ', result[0])
+print('Answer question 2: ',sum(result[:3]))
