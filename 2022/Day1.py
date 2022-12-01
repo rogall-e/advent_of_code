@@ -15,7 +15,7 @@ data.append('')
 for idx, i in enumerate(data):
     if i != '':
         temp_lst.append(int(i))
-    elif i == '':
+    else:
         result.append(sum(temp_lst))
         temp_lst = []
 
