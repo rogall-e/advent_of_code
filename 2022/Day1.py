@@ -11,8 +11,7 @@ temp_lst = []
 result = []
 data.append('')
 
-
-for idx, i in enumerate(data):
+for i in data:
     if i != '':
         temp_lst.append(int(i))
     else:
@@ -21,4 +20,4 @@ for idx, i in enumerate(data):
 
 result = sorted(result, reverse=True)
 print('Answer question 1: ', result[0])
-print('Answer question 2: ',sum(result[:3]))
+print('Answer question 2: ', sum(result[:3]))
