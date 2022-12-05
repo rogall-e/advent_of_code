@@ -21,7 +21,6 @@ def preprocess_data(data):
 
     crate_dict = defaultdict(list)
     crate_idx = []
-
     for item in crates:
         if item.startswith(' 1'):
             for i,letter in enumerate(item):
@@ -46,26 +45,31 @@ def preprocess_data(data):
 
 def part_1(data):
     moves, crate_dict = preprocess_data(data)
+    
     for move in moves:
         for _ in range(int(move[1])):
             crate_move = crate_dict[move[3]].pop(0)
             crate_dict[move[5]].insert(0, crate_move)
-
+            
     solution = ''
     for key in sorted(crate_dict):
         solution += f"{crate_dict[key][0]}"
+        
     return solution
 
 
 def part_2(data):
     moves, crate_dict = preprocess_data(data)
+    
     for move in moves:
         for _ in range(int(move[1])):
                 crate_move = crate_dict[move[3]].pop(0)
                 crate_dict[move[5]].insert(_, crate_move)
+                
     solution = ''
     for key in sorted(crate_dict):
         solution += f"{crate_dict[key][0]}"
+        
     return solution            
     
             
