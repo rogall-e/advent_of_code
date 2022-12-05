@@ -19,17 +19,16 @@ def preprocess_data(data):
         if x.startswith('move'):
             moves.append(x)   
 
-    crate_dict = defaultdict(list)
+    moves = [x.split(' ') for x in moves]
+    
     crate_idx = []
     for item in crates:
         if item.startswith(' 1'):
             for i,letter in enumerate(item):
                 if letter != ' ':
-                    crate_dict[f'{i}']
                     crate_idx.append((i, letter))
                     
-    moves = [x.split(' ') for x in moves]
-
+    crate_dict = defaultdict(list)
     for item in crates:
         if not item.startswith(' 1'):
             for i,letter in enumerate(item):
