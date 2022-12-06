@@ -2,8 +2,7 @@ with open('2022/input_files/day6.txt') as f:
     lines = f.read()
 
 
-
-def solution(lines, codon=4):
+def task_solution(lines, codon=4):
     reading_frame = []
     solution = 0
     for idx,item in enumerate(lines):
@@ -17,6 +16,6 @@ def solution(lines, codon=4):
     return solution      
 
 
-print(solution(lines))
-print(solution(lines, 14))
+print(task_solution(lines))
+print(task_solution(lines, 14))
     
