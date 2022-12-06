@@ -26,7 +26,7 @@ def preprocess_data(data):
     for item in crates:
         if not item.startswith(' 1'):
             for i,letter in enumerate(item):
-                if letter != ' ' and letter != '[' and letter != ']':  
+                if letter != ' ' and letter != '[' and letter != ']': 
                     crate_dict[f'{i}'].append(letter)
         if item.startswith(' 1'):
             for i,letter in enumerate(item):
