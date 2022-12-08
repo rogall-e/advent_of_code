@@ -8,6 +8,7 @@ def get_data(data):
     return data
 
 data = get_data(lines)
+
 def parse_file_system(data):
     filesystem_dict = defaultdict(int)
     processed_files = defaultdict(set)
