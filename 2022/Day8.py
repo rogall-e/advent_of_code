@@ -12,9 +12,9 @@ data = get_data(lines)
 def counting_trees(data):
     grid = {}
     for y, line in enumerate(data):
-        for x, c in enumerate(line):
-            grid[x, y] = int(c)
-            
+        for x, height in enumerate(line):
+            grid[x, y] = int(height)
+    
     directions = [
         (0, 1),
         (0, -1),
