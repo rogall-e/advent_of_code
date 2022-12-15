@@ -60,11 +60,11 @@ for item in data:
             max_depth = int(y.strip())
 rocks = get_rocks(data)          
 
-ground = get_rocks([[(0,max(rocks, key = lambda t: t[1])[1]+2),(1000,max(rocks, key = lambda t: t[1])[1]+2)]])
+ground = get_rocks([[(0,max(rocks, key = lambda t: t[1])[1]+2),(750,max(rocks, key = lambda t: t[1])[1]+2)]])
 
 
 def part_1(rocks):
-    grid = np.full((1001,172), '.')
+    grid = np.full((751,172), '.')
     current_position = start_point
     sand = 0
     for rock in rocks:
@@ -83,13 +83,16 @@ def part_1(rocks):
             sand += 1
             grid[x,y] = 'O'
             current_position = start_point  
+    with open('2022/output/grid_after_1.txt','w') as f:  
+        grid_out = np.rot90(grid,3)
+        np.savetxt(f, grid_out, fmt='%s')
     return sand  
       
 
 def part_2(rocks,ground, start_point):
     xs = start_point[0]
     ys = start_point[1]
-    grid = np.full((1001,173), '.')
+    grid = np.full((751,173), '.')
     current_position = start_point
     sand = 0
     rocks = rocks | ground
@@ -108,7 +111,10 @@ def part_2(rocks,ground, start_point):
         elif grid[x,y+1] and grid[x-1,y+1] and grid[x+1,y+1] !='.': 
             sand += 1
             grid[x,y] = 'O'
-            current_position = start_point  
+            current_position = start_point
+    with open('2022/output/grid_after_2.txt','w') as f:  
+        grid_out = np.rot90(grid,3)
+        np.savetxt(f, grid_out, fmt='%s')
     return sand  
    
 print(part_1(rocks))
