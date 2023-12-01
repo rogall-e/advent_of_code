@@ -29,16 +29,14 @@ def day_one(data, part):
                     if c.isdigit():
                         digits_in_str.append(c)
                 digit_lst.append(digits_in_str)
-    solution_lst = []
+    solution = 0
     for digits in digit_lst:
         first_digit = digits[0]
         last_digit = digits[-1]
 
-        digit = int(first_digit + last_digit)
+        solution += int(first_digit + last_digit)
 
-        solution_lst.append(digit)
-
-    return sum(solution_lst)
+    return solution
 
 
 if __name__ == "__main__":
