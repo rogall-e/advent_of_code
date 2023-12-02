@@ -16,7 +16,6 @@ def pattern_matching(iteration):
 
 def day_two(data, part):
     bag = {"red": 12, "green": 13, "blue": 14}
-
     if part == "part_1":
         sum_of_ids = 0
         for idx, game in enumerate(data):
@@ -36,7 +35,6 @@ def day_two(data, part):
                     )
                 ):
                     break
-
             else:
                 if game_id != None:
                     sum_of_ids += int(game_id)
@@ -47,9 +45,7 @@ def day_two(data, part):
         for game in data:
             game_id, cubes = game.split(": ")
             cubes = cubes.split("; ")
-
             red, green, blue = 0, 0, 0
-
             for iteration in cubes:
                 match_green, match_red, match_blue = pattern_matching(
                     iteration
@@ -61,10 +57,8 @@ def day_two(data, part):
                     green = int(match_green.group(1))
                 if match_red and int(match_red.group(1)) > red:
                     red = int(match_red.group(1))
-
             powers = red * blue * green
             sum_of_powers += powers
-
         return sum_of_powers
 
 
