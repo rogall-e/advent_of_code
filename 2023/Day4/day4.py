@@ -27,19 +27,6 @@ def compare_cards(elves, winning, points=0, idx=0):
     if idx < len(winning):
         elves_set = set(elves[idx])
         winning_set = set(winning[idx])
-
-    if idx == len(winning):
-        print(points)
-        solution = points
-        return solution
-
-    if points == 0:
-        hits = elves_set.intersection(winning_set)
-        points = 2 ** (len(hits) - 1)
-        idx += 1
-        return compare_cards(elves, winning, points, idx)
-
-    else:
         hits = elves_set.intersection(winning_set)
         if len(hits) == 0:
             points = points
@@ -47,6 +34,10 @@ def compare_cards(elves, winning, points=0, idx=0):
             points += 2 ** (len(hits) - 1)
         idx += 1
         return compare_cards(elves, winning, points, idx)
+    if idx == len(winning):
+        print(points)
+        solution = points
+        return solution
 
 
 def counting_cards(elves, winning, amount_cards, idx=0):
