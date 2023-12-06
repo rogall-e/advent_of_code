@@ -62,10 +62,7 @@ fn part_one(times:Vec<i32>, distances:Vec<i32>) {
     let mut winning_distance_vec:Vec<i32> = Vec::new();
     for (idx, time) in times.into_iter().enumerate() {
         let mut winning_distance:i32 = 0;
-        for ms in 0..time {
-            if ms == 0 {
-                continue;
-            }
+        for ms in 1..time {
             let distance_travelled = (time-ms) * ms;
             if distance_travelled > distances[idx] {
                 winning_distance = winning_distance + 1;
