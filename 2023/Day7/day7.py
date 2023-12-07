@@ -47,15 +47,10 @@ def day_seven(data, part):
                 hand_ranks[idx] = min(hand_ranks[idx], get_hand_ranks(
                     reduce(lambda a,b: a + [card_value] if b == 12 else a + [b], hand, [])
                     ))
-            
-    
-
 
     bids = [int(_.split(" ")[1]) for _ in data]
     solution = [(a,b,c) for a,b,c in zip(hand_ranks, hands, bids)]
-
     solution.sort(reverse=True)
-    
     return sum((idx + 1) * x[-1] for idx, x in enumerate(solution))
 
 def get_hand_ranks(hand):
